@@ -1,0 +1,295 @@
+/* ─── Flashlight ─── */
+.flashlight {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.45);
+  transition: background 0.05s linear;
+}
+
+/* ─── Main Content ─── */
+.mainContent {
+  width: 60%;
+  padding: 88px 0;
+}
+
+/* ─── About ─── */
+.aboutGrid {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.aboutContent {
+  flex: 0 0 58%;
+  max-width: 58%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.aboutLead {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text);
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+
+.aboutText {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+}
+
+.aboutText strong {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.snapshot {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.snapshot > div {
+  flex: 1;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  position: relative;
+  overflow: hidden;
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.snapshot > div::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 100% 0%, var(--accent-soft), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.snapshot > div:hover {
+  border-color: var(--accent);
+  background: var(--surface2);
+  transform: translateY(-3px);
+}
+
+.snapshot > div:hover::before {
+  opacity: 1;
+}
+
+.snapshot span {
+  position: relative;
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  letter-spacing: 0.16em;
+  margin-bottom: 10px;
+}
+
+.snapshot strong {
+  position: relative;
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.snapshot p {
+  position: relative;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* ─── Skills ─── */
+.skillsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.skillItem {
+  flex: 1 1 calc(33.333% - 16px);
+  min-width: 250px;
+  background: var(--surface);
+  padding: 22px 20px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.skillItem:hover {
+  border-color: var(--accent);
+  background: var(--surface2);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+
+.skillItem strong {
+  display: block;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.skillItem p {
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+}
+
+/* ─── Services ─── */
+.serviceGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.serviceGrid > * {
+  flex: 1 1 calc(50% - 16px);
+  min-width: 280px;
+}
+
+/* ─── Work ─── */
+.workSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ─── Mobile footer ─── */
+.footerSp {
+  display: none;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  padding: 24px 0 40px;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 1024px) {
+  .aboutGrid {
+    flex-direction: column;
+  }
+
+  .aboutContent,
+  .snapshot {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .snapshot {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .snapshot > * {
+    flex: 1 1 calc(50% - 16px);
+  }
+
+  .skillItem,
+  .serviceGrid > * {
+    flex: 1 1 calc(50% - 16px);
+  }
+}
+
+@media (max-width: 860px) {
+  .mainContent {
+    width: 100%;
+    padding: 0 0 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .mainContent {
+    width: 100%;
+    padding: 20px 0 40px;
+  }
+
+  .flashlight {
+    display: none;
+  }
+
+  .footerSp {
+    display: block;
+  }
+
+  .snapshot {
+    flex-direction: column;
+  }
+
+  .snapshot > *,
+  .skillItem,
+  .serviceGrid > * {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+.workSection {
+  margin-bottom: 80px;
+}
+
+.workRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+@media (max-width: 576px) {
+  .workRow {
+    flex-direction: column;
+  }
+}
+
+.workRow > * {
+  width: calc((100% / 2) - (20px * 1) / 2);
+}
+
+@media (max-width: 576px) {
+  .workRow > * {
+    width: 100%;
+  }
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.viewMoreBtn {
+  padding: 14px 32px;
+  border-radius: 999px;
+  border: 2px solid var(--text);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.viewMoreBtn:hover {
+  background: var(--text);
+  color: var(--bg);
+}

@@ -1,0 +1,84 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.step {
+  flex: 0 0 calc(50% - 8px);
+  max-width: calc(50% - 8px);
+  box-sizing: border-box;
+
+  background: var(--surface);
+  padding: 32px 24px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.step::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-left: 3px solid var(--accent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.step:hover {
+  border-color: var(--accent);
+  transform: translateY(-6px);
+  background: var(--surface2);
+  box-shadow: var(--shadow-sm);
+}
+
+.step:hover::before {
+  opacity: 1;
+}
+
+.stepHeader {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.stepNum {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  transition: color 0.3s;
+}
+
+.stepTitle {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--text);
+  letter-spacing: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.stepDesc {
+  position: relative;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.stepDesc strong {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .step {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 26px 20px;
+  }
+}
