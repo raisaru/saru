@@ -38,9 +38,7 @@ function validate(fields) {
 function Field({ label, id, error, children }) {
   return (
     <div className={styles.field}>
-      <label htmlFor={id} className={styles.label}>
-        {label}
-      </label>
+      <label htmlFor={id} className={styles.label}>{label}</label>
       {children}
       {error && <span className={styles.error}>{error}</span>}
     </div>
@@ -52,12 +50,11 @@ export default function ContactForm() {
   const [errors, setErrors] = useState({})
   const [touched, setTouched] = useState({})
 
-  // Connect your explicit Formspree endpoint ID here
-  const [state, handleFormspreeSubmit] = useForm('xeebpdyq')
+  // Formspree state controller
+  const [state, handleFormspreeSubmit, resetFormspree] = useForm('xeebpdyq')
 
   const update = (e) => {
     const { name, value } = e.target
-
     const next = { ...fields, [name]: value }
     setFields(next)
 
@@ -72,14 +69,9 @@ export default function ContactForm() {
 
   const blur = (e) => {
     const { name } = e.target
-
-    setTouched((prev) => ({
-      ...prev,
-      [name]: true,
-    }))
+    setTouched((prev) => ({ ...prev, [name]: true }))
 
     const errs = validate(fields)
-
     setErrors((prev) => ({
       ...prev,
       [name]: errs[name],
@@ -88,8 +80,6 @@ export default function ContactForm() {
 
   const localSubmitCheck = async (e) => {
     e.preventDefault()
-
-    // 1. Run your local validation checks
     const errs = validate(fields)
 
     if (Object.keys(errs).length) {
@@ -103,26 +93,30 @@ export default function ContactForm() {
       return
     }
 
-    // 2. Pass control to Formspree's submission handler if valid
     handleFormspreeSubmit(e)
+  }
+
+  // Smooth local reset instead of heavy window.location.reload()
+  const handleReset = () => {
+    setFields(INITIAL)
+    setErrors({})
+    setTouched({})
+    resetFormspree() // Resets Formspree's internal state.succeeded back to false
   }
 
   const inputClass = (name) =>
     `${styles.input} ${errors[name] && touched[name] ? styles.inputError : ''}`
 
-  // Render the success state using Formspree's built-in state manager
+  // Modified Success Screen Layout
   if (state.succeeded) {
     return (
       <div className={styles.success}>
         <span className={styles.successIcon}>✓</span>
-        <h4>Thank You!</h4>
-        <p>Your message has been sent successfully. I'll get back to you soon.</p>
-        <button
-          className={styles.resetBtn}
-          onClick={() => window.location.reload()}
-        >
-          Send Another Message
-        </button>
+        <h4>Thank You, {fields.name}!</h4>
+
+        {/* Forces client data to sit inline smoothly */}
+        <p className={styles.successInlineMsg}>Your message has been sent successfully. I'll get back to you soon.</p>
+        <button className={styles.resetBtn} onClick={handleReset}>Send Another Message</button>
       </div>
     )
   }
@@ -131,20 +125,12 @@ export default function ContactForm() {
     <form className={styles.form} onSubmit={localSubmitCheck} noValidate>
       <div className={styles.row}>
         <Field label="Full Name" id="name" error={touched.name && errors.name}>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            value={fields.name}
-            onChange={update}
-            onBlur={blur}
-            className={inputClass('name')}
-          />
+          <input id="name" name="name" type="text" value={fields.name} onChange={update} onBlur={blur} className={inputClass('name')} />
           <ValidationError prefix="Name" field="name" errors={state.errors} />
         </Field>
 
         <Field label="Email Address" id="email" error={touched.email && errors.email}>
-          <input
+          <input 
             id="email"
             name="email"
             type="email"

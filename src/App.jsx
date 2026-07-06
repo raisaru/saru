@@ -1,4 +1,13 @@
 import { useState, useEffect } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination } from 'swiper/modules'
+
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+
+
+
 import Header from './components/Header/Header'
 import ServiceCard from './components/ServiceCard/ServiceCard'
 import ProjectCard from './components/ProjectCard/ProjectCard'
@@ -13,6 +22,8 @@ import {
 import { useScrollReveal } from './hooks/useScrollReveal'
 import { useTheme } from './hooks/useTheme'
 import styles from './App.module.css'
+
+
 
 function RevealHeading({ children }) {
   const ref = useScrollReveal()
@@ -44,29 +55,30 @@ export default function App() {
     ? PROJECTS
     : PROJECTS.slice(0, 2)
 
-  // Flashlight Effect (Dark Mode)
+
   useEffect(() => {
-    const fl = document.getElementById('flashlight')
-    if (!fl) return
+    const glasslight = document.getElementById("glasslight");
+    const flashlight = document.getElementById("flashlight");
 
-    const onMove = (e) => {
-      if (theme === 'light') return
-      fl.style.background = `radial-gradient(circle 200px at ${e.clientX}px ${e.clientY}px, transparent 10%, rgba(0,0,0,0.45) 42%)`
-    }
+    if (!glasslight || !flashlight) return;
 
-    const onLeave = () => {
-      if (theme === 'light') return
-      fl.style.background = 'rgba(0,0,0,0.45)'
-    }
+    const move = (e) => {
+      const x = `${e.clientX}px`;
+      const y = `${e.clientY}px`;
 
-    document.addEventListener('mousemove', onMove)
-    document.addEventListener('mouseleave', onLeave)
+      glasslight.style.setProperty("--x", x);
+      glasslight.style.setProperty("--y", y);
+
+      flashlight.style.setProperty("--x", x);
+      flashlight.style.setProperty("--y", y);
+    };
+
+    window.addEventListener("pointermove", move);
 
     return () => {
-      document.removeEventListener('mousemove', onMove)
-      document.removeEventListener('mouseleave', onLeave)
-    }
-  }, [theme])
+      window.removeEventListener("pointermove", move);
+    };
+  }, []);
 
   // Active Navigation
   useEffect(() => {
@@ -90,7 +102,11 @@ export default function App() {
 
   return (
     <>
-      <div id="flashlight" className={styles.flashlight} style={{ display: theme === 'light' ? 'none' : undefined, }} />
+      {/* <div id="flashlight" className="flashlight" /> */}
+      {/* <div id="flashlight" className={styles.flashlight} style={{ display: theme === 'light' ? 'none' : undefined, }} /> */}
+      {/* <div id="glasslight" className={styles.glasslight}></div> */}
+      <div id="glasslight" className={styles.glasslight}></div>
+      <div id="flashlight" className={styles.flashlight}></div>
       <div className="page-wrapper">
         <div className="page-content">
           <Header activeSection={activeSection} theme={theme} onToggleTheme={toggle} />
@@ -111,30 +127,6 @@ export default function App() {
                     best development practices.
                   </p>
                 </div>
-                {/*
-                <div className={styles.aboutContent}>
-                  <p
-                    ref={aboutRef1}
-                    className={`${styles.aboutLead} reveal`}
-                  >
-                    I build responsive, modern, and user-friendly websites
-                    using React, JavaScript, PHP, and WordPress, focusing on
-                    clean code, performance, and great user experiences.
-                  </p>
-
-                  <p
-                    ref={aboutRef2}
-                    className={`${styles.aboutText} reveal`}
-                  >
-                    Hi, I'm <strong>Saru Rai</strong>, a Junior Frontend &
-                    WordPress Developer.I specialize
-                    in developing responsive websites, custom WordPress themes,
-                    and interactive web applications. I enjoy transforming UI
-                    designs into functional websites while continuously learning
-                    modern technologies and best development practices.
-                  </p>
-                </div>
-                */}
 
                 <div className={styles.snapshot} aria-label="Portfolio snapshot" >
                   <div>
@@ -186,8 +178,7 @@ export default function App() {
               </div>
             </section>
 
-            {/* Projects */}
-            <section id="work" className={styles.workSection}>
+            {/* <section id="work" className={styles.workSection}>
               <RevealHeading>Featured Projects</RevealHeading>
 
               <div className={styles.workRow}>
@@ -210,7 +201,49 @@ export default function App() {
                   </button>
                 </div>
               )}
+            </section> */}
+
+            {/* Projects */}
+            <section id="work" className={styles.workSection}>
+              <RevealHeading>Featured Projects</RevealHeading>
+
+              <Swiper
+                modules={[Navigation, Pagination]}
+                loop={true}
+                navigation
+                pagination={{
+                  clickable: true,
+                  type: "bullets",
+                }}
+                spaceBetween={30}
+                slidesPerView={1}
+                breakpoints={{
+                  0: {
+                    slidesPerView: 1,
+                  },
+                  576: {
+                    slidesPerView: 1.5,
+                  },
+                  992: {
+                    slidesPerView: 2,
+                  },
+
+                }}
+                className={styles.projectSwiper}
+              >
+                {PROJECTS.map((project, index) => (
+                  <SwiperSlide key={project.title}>
+                    <ProjectCard
+                      {...project}
+                      delay={index * 120}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             </section>
+
+
+
             {/* Development Process */}
             <ProcessSection />
 

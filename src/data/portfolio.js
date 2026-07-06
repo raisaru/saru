@@ -69,14 +69,14 @@ export const WP_SERVICES = [
     title: 'Dynamic Content Integration',
     desc: 'Build dynamic websites using ACF/SCF, custom post types, taxonomies, and reusable WordPress templates.',
   },
-  {
-    title: 'Custom Functionality',
-    desc: 'Develop custom features and template functionality with PHP to meet specific project requirements.',
-  },
-  {
-    title: 'Performance & Responsive Design',
-    desc: 'Create fast, responsive, and user-friendly WordPress websites optimized for all screen sizes.',
-  },
+  // {
+  //   title: 'Custom Functionality',
+  //   desc: 'Develop custom features and template functionality with PHP to meet specific project requirements.',
+  // },
+  // {
+  //   title: 'Performance & Responsive Design',
+  //   desc: 'Create fast, responsive, and user-friendly WordPress websites optimized for all screen sizes.',
+  // },
 ]
 
 // ─── Projects ─────────────────────────────────────────────────

@@ -182,3 +182,15 @@
     justify-content: center;
   }
 }
+
+.successInlineMsg {
+  display: block;
+  text-align: center;
+  line-height: 1.6;
+  margin: 1rem 0 1.5rem 0;
+}
+
+.successInlineMsg strong {
+  display: inline; /* Forces inline rendering */
+  white-space: nowrap; /* Prevents text fragmentation */
+}

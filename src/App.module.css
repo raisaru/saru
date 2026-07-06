@@ -214,7 +214,7 @@
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 800px) {
   .mainContent {
     width: 100%;
     padding: 0 0 40px;
@@ -292,4 +292,146 @@
 .viewMoreBtn:hover {
   background: var(--text);
   color: var(--bg);
+}
+
+.glasslight {
+  --x: 50%;
+  --y: 50%;
+
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background: radial-gradient(
+    300px circle at var(--x) var(--y),
+    rgba(80, 180, 255, 0.15),
+    rgba(255, 255, 255, 0.05) 45%,
+    transparent 100%
+  );
+
+  filter: blur(30px);
+}
+
+.flashlight {
+  --x: 30%;
+  --y: 30%;
+
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+
+  background: radial-gradient(
+    40px circle at var(--x) var(--y),
+    rgba(181, 217, 232, 0.95) 0%,
+    rgba(255, 255, 255, 0.55) 35%,
+    rgba(173, 216, 230, 0.25) 65%,
+    transparent 100%
+  );
+}
+
+.projectSwiper :global(.swiper-wrapper) {
+  align-items: stretch;
+}
+
+.projectSwiper :global(.swiper-slide) {
+  height: auto;
+  display: flex;
+}
+
+.projectSwiper :global(.swiper-slide > *) {
+  width: 100%;
+  display: flex;
+}
+
+.projectSwiper {
+  position: relative;
+  padding-bottom: 80px;
+  margin-left: unset !important;
+  margin-right: unset !important;
+}
+
+/* Navigation */
+.projectSwiper :global(.swiper-button-prev),
+.projectSwiper :global(.swiper-button-next) {
+  top: auto;
+  bottom: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--surface); /* Changed */
+  border: 1px solid var(--border);
+  color: var(--accent); /* Changed */
+  z-index: 22;
+  opacity: 1;
+  transition:
+    opacity 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Hover */
+.projectSwiper :global(.swiper-button-prev:hover),
+.projectSwiper :global(.swiper-button-next:hover) {
+  background: var(--accent-soft); /* Changed */
+  border-color: var(--accent);
+}
+
+/* Disabled button */
+.projectSwiper :global(.swiper-button-disabled) {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* Left arrow */
+.projectSwiper :global(.swiper-button-prev) {
+  left: 0;
+}
+
+/* Right arrow */
+.projectSwiper :global(.swiper-button-next) {
+  left: 60px;
+  right: auto;
+}
+
+/* Arrow SVG */
+.swiper-button-prev,
+.swiper-button-next::slotted(svg),
+svg {
+  width: 18px !important;
+  height: 18px !important;
+  fill: currentColor; /* Changed */
+}
+
+/* Arrow icon */
+.projectSwiper :global(.swiper-button-prev::after),
+.projectSwiper :global(.swiper-button-next::after) {
+  font-size: 18px;
+}
+
+/* Pagination */
+.projectSwiper :global(.swiper-pagination) {
+  bottom: 12px !important;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+}
+
+@media (max-width: 576px) {
+  .projectSwiper :global(.swiper-pagination) {
+    left: 65%;
+  }
+}
+
+.projectSwiper :global(.swiper-pagination-bullet) {
+  width: 10px;
+  height: 10px;
+  background: var(--border-strong); /* Changed */
+  opacity: 1;
+}
+
+.projectSwiper :global(.swiper-pagination-bullet-active) {
+  background: var(--accent); /* Changed */
 }
