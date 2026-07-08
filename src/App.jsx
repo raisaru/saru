@@ -247,7 +247,7 @@ export default function App() {
             <ContactSection />
 
             <footer className={styles.footerSp}>
-              <p>	&copy; 2026 Saru Rai Junior Frontend & WordPress Developer</p>
+              <p>	&copy; 2025 Saru Rai. All rights reserved.</p>
             </footer>
           </main>
         </div>

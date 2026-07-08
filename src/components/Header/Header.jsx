@@ -79,7 +79,7 @@ export default function Header({ activeSection, theme, onToggleTheme }) {
       </div>
 
       <footer className={`${styles.footerLeft} hero-enter-5`}>
-        <p>© 2026 Saru Rai. All rights reserved.</p>
+        <p>&copy; 2025 Saru Rai. All rights reserved.</p>
       </footer>
     </header>
   )
