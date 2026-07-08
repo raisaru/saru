@@ -100,7 +100,7 @@ export const PROJECTS = [
     tags: ['WordPress', 'PHP', 'JavaScript', 'SCF', 'HTML5', 'SCSS'],
     // image: minamiImg,
     // imageAlt: 'Office Minami website',
-    liveUrl: 'https://www.officeminami.com/',
+    liveUrl: 'http://officeminami-dev.sakura.ne.jp/',
   },
   {
     title: 'Livable Staff',
@@ -118,7 +118,7 @@ export const PROJECTS = [
     tags: ['HTML5', 'JavaScript', 'SCSS'],
     image: daituuImg,
     imageAlt: 'Daituu website',
-    liveUrl: 'https://cms.aozora-test.info/daituu',
+    liveUrl: 'https://daitsu-net.com/',
   },
   {
     title: 'Visnex',
