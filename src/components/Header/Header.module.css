@@ -10,7 +10,6 @@
   padding: 80px 0 80px;
 }
 
-
 .heroCopy {
   position: relative;
 }
@@ -131,6 +130,10 @@
   gap: 12px;
   margin-top: 32px;
 }
+.socialItem {
+  position: relative;
+  z-index: 222;
+}
 
 .socialItem a {
   display: flex;
@@ -167,7 +170,7 @@
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 800px) {
   .header {
     width: 100%;
     height: auto;

@@ -100,6 +100,28 @@ export default function App() {
   const aboutRef1 = useScrollReveal({}, 0)
   const aboutRef2 = useScrollReveal({}, 120)
 
+
+
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+
   return (
     <>
       {/* <div id="flashlight" className="flashlight" /> */}
@@ -178,31 +200,6 @@ export default function App() {
               </div>
             </section>
 
-            {/* <section id="work" className={styles.workSection}>
-              <RevealHeading>Featured Projects</RevealHeading>
-
-              <div className={styles.workRow}>
-                {visibleProjects.map((project, index) => (
-                  <ProjectCard
-                    key={project.title}
-                    {...project}
-                    delay={index * 120}
-                  />
-                ))}
-              </div>
-
-              {PROJECTS.length > 2 && (
-                <div className={styles.buttonWrapper}>
-                  <button
-                    className={styles.viewMoreBtn}
-                    onClick={() => setShowAllProjects(!showAllProjects)}
-                  >
-                    {showAllProjects ? 'View Less' : 'View More'}
-                  </button>
-                </div>
-              )}
-            </section> */}
-
             {/* Projects */}
             <section id="work" className={styles.workSection}>
               <RevealHeading>Featured Projects</RevealHeading>
@@ -242,8 +239,6 @@ export default function App() {
               </Swiper>
             </section>
 
-
-
             {/* Development Process */}
             <ProcessSection />
 
@@ -252,11 +247,21 @@ export default function App() {
             <ContactSection />
 
             <footer className={styles.footerSp}>
-              <p>© 2026 Saru Rai • Junior Frontend & WordPress Developer</p>
+              <p>	&copy; 2026 Saru Rai Junior Frontend & WordPress Developer</p>
             </footer>
           </main>
         </div>
       </div>
+
+      <button
+        className={`${styles.scrollTop} ${showScrollTop ? styles.show : styles.hide
+          }`}
+        onClick={scrollToTop}
+        aria-label="Scroll to top"
+      >
+        ↑
+      </button>
     </>
   )
 }
+

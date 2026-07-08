@@ -14,9 +14,21 @@ export const NAV_LINKS = [
 
 // ─── Social Links ─────────────────────────────────────────────
 export const SOCIAL_LINKS = [
-  { key: 'ig', label: 'ig', url: 'https://www.instagram.com/' },
-  { key: 'gh', label: 'gh', url: 'https://github.com/raisaru' },
-  { key: 'li', label: 'in', url: 'https://www.linkedin.com/feed/' },
+  {
+    key: 'gm', // Gmail
+    label: 'GM',
+    url: 'mailto:your.email@gmail.com',
+  },
+  {
+    key: 'gh', // GitHub
+    label: 'GH',
+    url: 'https://github.com/raisaru',
+  },
+  {
+    key: 'li', // LinkedIn
+    label: 'IN',
+    url: 'https://www.linkedin.com/in/your-linkedin-username/',
+  },
 ]
 
 // ─── Tech Stack ───────────────────────────────────────────────
@@ -83,47 +95,87 @@ export const WP_SERVICES = [
 export const PROJECTS = [
   {
     title: 'Office Minami',
-    desc: 'Contributed to both frontend and backend development of a custom WordPress website. Built responsive page templates, integrated SCF fields, developed custom functionality with PHP, and implemented interactive UI components using JavaScript and SCSS.',
-    highlight: 'Full-Stack WordPress Development',
-    tags: ['WordPress', 'PHP', 'JavaScript', 'SCF', 'SCSS'],
-    image: minamiImg,
-    imageAlt: 'Office Minami website',
-    liveUrl: 'https://cms.aozora-test.info/minami',
+    desc: 'Contributed to both frontend and backend development of a custom WordPress website. Developed responsive page layouts using HTML, SCSS, and JavaScript, and implemented dynamic functionality with PHP and SCF, including custom templates, reusable components, and content management.',
+    highlight: 'Frontend & Dynamic WordPress Development',
+    tags: ['WordPress', 'PHP', 'JavaScript', 'SCF', 'HTML5', 'SCSS'],
+    // image: minamiImg,
+    // imageAlt: 'Office Minami website',
+    liveUrl: 'https://www.officeminami.com/',
   },
   {
     title: 'Livable Staff',
-    desc: 'Worked on both frontend and backend development, creating responsive layouts, custom WordPress templates, dynamic content management with ACF, and optimizing website performance for a better user experience.',
-    highlight: 'Frontend & Backend Development',
-    tags: ['WordPress', 'PHP', 'JavaScript', 'ACF', 'SCSS'],
-    image: livableImg,
-    imageAlt: 'Livable Staff website',
-    liveUrl: 'https://livable-staff.aozora-test.info/',
+    desc: 'Contributed to both frontend and backend development of a custom WordPress website. Developed responsive page layouts using HTML, SCSS, and JavaScript, and assisted in making selected pages and sections dynamic by integrating ACF fields and PHP templates.',
+    highlight: 'Frontend Development & WordPress Integration',
+    tags: ['WordPress', 'PHP', 'JavaScript', 'ACF', 'HTML5', 'SCSS'],
+    // image: livableImg,
+    // imageAlt: 'Livable Staff website',
+    liveUrl: 'https://www.livable-staff.co.jp/',
   },
   {
     title: 'Daituu',
-    desc: 'Developed frontend interfaces and backend functionality for a custom WordPress website, including custom page templates, ACF integration, reusable components, and responsive design implementation.',
-    highlight: 'Custom WordPress Solutions',
-    tags: ['WordPress', 'PHP', 'JavaScript', 'ACF', 'SCSS'],
+    desc: 'Assisted in the frontend development of the website by building responsive page layouts and interactive UI components using HTML, SCSS, and JavaScript. Collaborated with the development team to ensure a consistent and user-friendly experience across desktop, tablet, and mobile devices.',
+    highlight: 'Frontend Development',
+    tags: ['HTML5', 'JavaScript', 'SCSS'],
     image: daituuImg,
     imageAlt: 'Daituu website',
     liveUrl: 'https://cms.aozora-test.info/daituu',
   },
   {
     title: 'Visnex',
-    desc: 'Developed the complete frontend of the Visnex website using HTML, SCSS, and JavaScript. Created responsive and interactive user interfaces, and assisted in converting selected sections into dynamic WordPress templates by integrating PHP and SCF.',
-    highlight: 'Frontend Development & WordPress Integration',
+    desc: 'Contributed to both frontend and backend development of the website. Developed responsive page layouts and interactive UI components using HTML, SCSS, and JavaScript, and assisted in making selected sections dynamic by integrating PHP and SCF.',
+    highlight: 'Frontend Development & Dynamic Integration',
     tags: ['WordPress', 'PHP', 'HTML5', 'JavaScript', 'SCF', 'SCSS'],
     // image: visnexImg,
     // imageAlt: 'Visnex website',
-    liveUrl: 'https://cms.aozora-test.info/visnex/',
+    liveUrl: 'https://visnex-chem.com/',
   },
   {
     title: 'Megumi Food',
-    desc: 'Developed the complete frontend of a food business website using HTML, SCSS, and JavaScript. Built responsive page layouts, implemented interactive UI components, and ensured a seamless user experience across desktop, tablet, and mobile devices.',
+    desc: 'Developed the frontend of the website using HTML, SCSS, and JavaScript, creating responsive and interactive page layouts. Also assisted in integrating the Contact page with WordPress by implementing a dynamic contact form using the Contact Form 7 plugin.',
+    highlight: 'Frontend Development & Contact Form Integration',
+    tags: ['WordPress', 'HTML5', 'JavaScript', 'SCSS', 'Contact Form 7'],
+    liveUrl: 'https://www.megumi-food.com/',
+  },
+  {
+    title: 'Navi',
+    desc: 'Built the frontend of the website with HTML, SCSS, and JavaScript, ensuring a responsive and interactive user experience. Additionally, implemented the dynamic map section by integrating WordPress and PHP to display location-based content.',
+    highlight: 'Frontend Development & WordPress Map Integration',
+    tags: ['WordPress', 'PHP', 'HTML5', 'JavaScript', 'SCSS'],
+    liveUrl: 'https://navi.okiren8131.com/',
+  },
+  {
+    title: 'MCM Company',
+    desc: 'Contributed to the frontend development of selected sections of the corporate website using HTML, SCSS, and JavaScript. Implemented responsive layouts and interactive UI components while ensuring a consistent user experience across desktop and mobile devices.',
+    highlight: 'Frontend Development',
+    tags: ['HTML5', 'JavaScript', 'SCSS'],
+    liveUrl: 'https://mcmcompany.tokyo/',
+  },
+  {
+    title: 'Ofukuwake',
+    desc: 'Contributed to the frontend development of the website by building responsive page layouts and interactive UI components using HTML, SCSS, and JavaScript. Collaborated with the development team to deliver a consistent and user-friendly experience across desktop, tablet, and mobile devices.',
+    highlight: 'Frontend Development',
+    tags: ['HTML5', 'JavaScript', 'SCSS'],
+    liveUrl: 'https://www.ofukuwake.info/',
+  },
+  {
+    title: 'Aozora Offshore Frontend',
+    desc: 'Contributed to the frontend development of the website by implementing responsive page layouts and interactive UI components using HTML, SCSS, and JavaScript. Ensured a seamless user experience across desktop, tablet, and mobile devices.',
     highlight: 'Responsive Frontend Development',
     tags: ['HTML5', 'JavaScript', 'SCSS'],
-    // image: megumiImg,
-    // imageAlt: 'Megumi Food website',
-    liveUrl: 'https://static.aozora-test.info/megumi-food/',
+    liveUrl: 'https://aozora-okinawa.com/offshore-frontend/',
+  },
+  {
+    title: 'Aozora Offshore Backend',
+    desc: 'Contributed to the frontend development of the website by building responsive page layouts and implementing interactive UI components using HTML, SCSS, and JavaScript. Collaborated with the team to ensure a consistent and user-friendly experience across desktop, tablet, and mobile devices.',
+    highlight: 'Responsive Frontend Development',
+    tags: ['HTML5', 'JavaScript', 'SCSS'],
+    liveUrl: 'https://aozora-okinawa.com/offshore-backend/',
+  },
+  {
+    title: 'To-Chu Kaitori',
+    desc: 'Contributed to the frontend development of selected sections of the website using HTML, SCSS, and JavaScript. Implemented responsive layouts and interactive UI components while ensuring a consistent user experience across desktop, tablet, and mobile devices.',
+    highlight: 'Frontend Development',
+    tags: ['HTML5', 'JavaScript', 'SCSS'],
+    liveUrl: 'https://www.to-chu.co.jp/kaitori/',
   },
 ]

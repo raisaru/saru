@@ -435,3 +435,75 @@ svg {
 .projectSwiper :global(.swiper-pagination-bullet-active) {
   background: var(--accent); /* Changed */
 }
+
+
+.scrollTop {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--border);
+  border-radius: 50%;
+
+  background: var(--surface);
+  color: var(--accent);
+
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(10px);
+
+  cursor: pointer;
+  z-index: 999;
+
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.hide {
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  pointer-events: none;
+}
+
+.scrollTop:hover {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border-color: var(--accent);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.scrollTop:active {
+  transform: translateY(-2px) scale(0.98);
+}
+
+@media (max-width: 576px) {
+  .scrollTop {
+    right: 16px;
+    bottom: 16px;
+    width: 46px;
+    height: 46px;
+  }
+}
