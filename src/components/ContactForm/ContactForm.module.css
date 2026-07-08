@@ -12,6 +12,12 @@
   gap: 20px;
 }
 
+@media (max-width: 600px) {
+  .row {
+    flex-direction: row;
+  }
+}
+
 .row > * {
   flex: 1 1 calc(50% - 10px);
 }

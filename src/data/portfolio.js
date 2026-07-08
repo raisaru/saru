@@ -17,7 +17,7 @@ export const SOCIAL_LINKS = [
   {
     key: 'gm', // Gmail
     label: 'GM',
-    url: 'mailto:your.email@gmail.com',
+    url: 'mailto:raisaru102@gmail.com',
   },
   {
     key: 'gh', // GitHub
@@ -27,7 +27,7 @@ export const SOCIAL_LINKS = [
   {
     key: 'li', // LinkedIn
     label: 'IN',
-    url: 'https://www.linkedin.com/in/your-linkedin-username/',
+    url: 'https://www.linkedin.com/feed/',
   },
 ]
 
@@ -66,12 +66,6 @@ export const FRONTEND_CARDS = [
 ]
 
 // ─── WordPress Services ───────────────────────────────────────
-// export const WP_SERVICES = [
-//   {
-//     title: 'Custom Theme Development',
-//     desc: 'Turning static designs into fully functional, dynamic WordPress themes with custom fields and custom post types.',
-//   },
-// ]
 export const WP_SERVICES = [
   {
     title: 'Custom Theme Development',
@@ -81,6 +75,7 @@ export const WP_SERVICES = [
     title: 'Dynamic Content Integration',
     desc: 'Build dynamic websites using ACF/SCF, custom post types, taxonomies, and reusable WordPress templates.',
   },
+  
   // {
   //   title: 'Custom Functionality',
   //   desc: 'Develop custom features and template functionality with PHP to meet specific project requirements.',
