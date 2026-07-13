@@ -27,7 +27,7 @@ export const SOCIAL_LINKS = [
   {
     key: 'li', // LinkedIn
     label: 'IN',
-    url: 'https://www.linkedin.com/feed/',
+    url: 'https://www.linkedin.com/in/saru-r-ab49702b6/',
   },
 ]
 
