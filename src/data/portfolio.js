@@ -95,7 +95,7 @@ export const PROJECTS = [
     tags: ['WordPress', 'PHP', 'JavaScript', 'SCF', 'HTML5', 'SCSS'],
     // image: minamiImg,
     // imageAlt: 'Office Minami website',
-    liveUrl: 'http://officeminami-dev.sakura.ne.jp/',
+    liveUrl: 'https://www.officeminami.com/',
   },
   {
     title: 'Livable Staff',
